@@ -41,7 +41,7 @@
 
             <h4 class="card-title, text-center"><strong>ou</strong></h4>
 
-            <div style="width: 23rem; height: 20rem;">
+            <div style="width: 25rem; height: 20rem;">
                 <div class="custom-file">
                     <input type="file" class="custom-file-input, file-button" id="inputGroupFile">
                     <label class="custom-file-label" for="inputGroupFile">Escolha o modelo do certificado</label>
@@ -51,12 +51,23 @@
                 <div class="text-left">
                     <label for="M4">
                         <input type="radio" name="modelo" id="M4" value="M4">
-                        <img class="preview-img" style="width: 23rem; height: 15rem;">
+                        <img class="preview-img" style="width: 25rem; height: 15rem;">
                     </label>
                 </div>
             </div>
         </fieldset>
 
+        <div style="width: 25rem; height: 20rem;">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input, file-buttonAss" id="inputGroupFileAss">
+                <label class="custom-file-label" for="inputGroupFileAss">Escolha a assinatura</label>
+                <input class="file-chooserAss" type="file" accept="image/*" hidden>
+
+            </div>
+            <div class="text-left">
+                <img class="preview-imgAss" style="width: 25rem; height: 15rem;">
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-md-6 .col-md-offset-3">
@@ -68,9 +79,8 @@
         </div>
 
         <div><label>&nbsp;</label></div>
-        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Gerar certificado</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Gerar certificado</button>
         <div><label>&nbsp;</label></div>
-
 
     </form>
 
@@ -106,6 +116,20 @@
         reader.onload = e => previewImg.src = e.target.result;
         reader.readAsDataURL(fileToUpload);
     };
+
+    const previewImgAss = $('.preview-imgAss');
+    const fileChooserAss = $('.file-chooserAss');
+    const fileButtonAss = $('.file-buttonAss');
+
+    fileButtonAss.onclick = () => fileChooserAss.click();
+
+    fileChooserAss.onchange = e => {
+        const fileToUpload = e.target.files.item(0);
+        const reader = new FileReader();
+        reader.onload = e => previewImgAss.src = e.target.result;
+        reader.readAsDataURL(fileToUpload);
+    };
+
 </script>
 
 </html>

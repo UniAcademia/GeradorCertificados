@@ -57,18 +57,6 @@
             </div>
         </div>
 
-        <div style="width: 23rem;">
-            <div class="custom-file">
-                <input type="file" class="custom-file-input, file-button" id="inputGroupFile">
-                <label class="custom-file-label" for="inputGroupFile">Escolha uma assinatura</label>
-                <input class="file-chooser" type="file" accept="image/*" hidden>
-
-            </div>
-            <div class="text-left">
-                <img class="preview-img" style="width: 23rem; height: 15rem;">
-            </div>
-        </div>
-
         <div><label>&nbsp;</label></div>
 
         <button type="submit" class="btn btn-primary">Criar conta</button>
@@ -90,22 +78,5 @@
     </nav>
 
 </body>
-
-<script>
-    const $ = document.querySelector.bind(document);
-
-    const previewImg = $('.preview-img');
-    const fileChooser = $('.file-chooser');
-    const fileButton = $('.file-button');
-
-    fileButton.onclick = () => fileChooser.click();
-
-    fileChooser.onchange = e => {
-        const fileToUpload = e.target.files.item(0);
-        const reader = new FileReader();
-        reader.onload = e => previewImg.src = e.target.result;
-        reader.readAsDataURL(fileToUpload);
-    };
-</script>
 
 </html>
